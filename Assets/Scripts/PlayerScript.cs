@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	public float     turnSpeed     = 5.0f;
 	public bool      alive         = true;
 	public Transform bulletPrefab;
+	public ParticleSystem levelUpParticles;
 
 	void Start() {
 		gcScript = GameObject.Find ("GameController").GetComponent<GameControllerScript>();
@@ -30,6 +31,8 @@ public class PlayerScript : MonoBehaviour {
 			bullet.GetComponent<BulletScript>().ShootFrom(this.transform);
 			//bullet.parent = this.transform;
 		}
+
+		levelUpParticles.transform.position = this.transform.position;
 	}
 
 	void OnTriggerEnter(Collider c) {
@@ -37,12 +40,20 @@ public class PlayerScript : MonoBehaviour {
 			gcScript.HurtPlayer(1);
 			Destroy (c.gameObject);
 		}
-	}
+
+		if (c.gameObject.tag == "Exit") {
+			Application.LoadLevel("prototype");
+        }
+    }
 
 	public void Die() {
 		this.rigidbody.velocity = Vector3.zero;
 		this.gameObject.particleSystem.Play();
 		this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 		alive = false;
+	}
+
+	public void LevelUp() {
+		levelUpParticles.Play();
 	}
 }

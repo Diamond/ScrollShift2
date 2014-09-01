@@ -7,9 +7,10 @@ public class GameControllerScript : MonoBehaviour {
 	public RectTransform xpBarFill;
 	public RectTransform hpBarFill;
 	public int xp       = 0;
-	public int xpToNext = 10;
+	public int xpToNext = 3;
 	public int hp       = 3;
 	public int maxHp    = 3;
+	public int level    = 1;
 
 	public PlayerScript playerScript;
 
@@ -22,6 +23,10 @@ public class GameControllerScript : MonoBehaviour {
 		if (xp >= xpToNext) {
 			xpToNext += 5;
 			xp = 0;
+			playerScript.LevelUp();
+			level++;
+			maxHp = 3 + level;
+			hp = maxHp;
 		}
 
 		BarSizeForValue(xp, xpToNext, xpBarFill);
