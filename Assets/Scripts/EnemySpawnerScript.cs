@@ -14,7 +14,7 @@ public class EnemySpawnerScript: MonoBehaviour {
 			// Pick a random location from -15.0f to 15.0f
 			float x = Random.Range (-9.5f, 9.5f);
 			var enemy = Instantiate(enemyPrefab) as Transform;
-			enemy.position = new Vector3(x, 1.5f, z);
+			enemy.position = new Vector3(x, 0.75f, z);
 			enemy.parent = this.transform;
 			_enemies.Add(enemy);
 		}

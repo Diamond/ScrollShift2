@@ -33,4 +33,10 @@ public class BulletScript : MonoBehaviour {
 		alive = true;
 		this.renderer.enabled = true;
 	}
+
+	void OnTriggerEnter(Collider c) {
+		if (c.gameObject.tag == "Wall") {
+			Destroy (this.gameObject);
+		}
+	}
 }

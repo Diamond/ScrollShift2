@@ -30,7 +30,6 @@ public class PlayerScript : MonoBehaviour {
 	void OnTriggerEnter(Collider c) {
 		if (c.gameObject.tag == "Wall") {
 			this.rigidbody.velocity = Vector3.zero;
-			Debug.Log ("Collided");
 			this.gameObject.particleSystem.Play();
 			this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 			alive = false;
