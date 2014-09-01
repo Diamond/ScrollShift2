@@ -30,6 +30,7 @@ public class BulletScript : MonoBehaviour {
 	public void ShootFrom(Transform origin) {
 		_startPosition = origin.position;
 		this.transform.position = _startPosition;
+		this.transform.position += new Vector3(0.0f, 0.0f, 0.5f);
 		alive = true;
 		this.renderer.enabled = true;
 	}

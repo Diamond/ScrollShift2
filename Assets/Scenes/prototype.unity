@@ -962,6 +962,7 @@ GameObject:
   - 54: {fileID: 1926067659}
   - 198: {fileID: 1926067665}
   - 199: {fileID: 1926067664}
+  - 95: {fileID: 1926067666}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Player
@@ -997,6 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e59d143b2224f3b92ef8cbe6101cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gcScript: {fileID: 0}
   runSpeed: 20
   turnSpeed: 10
   alive: 1
@@ -2136,6 +2138,21 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!95 &1926067666
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1926067658}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1844a337c6e7a4c33add2a60edf72a5c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1993436991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2226,7 @@ MonoBehaviour:
   xpToNext: 10
   hp: 3
   maxHp: 3
+  playerScript: {fileID: 0}
 --- !u!4 &2021551743
 Transform:
   m_ObjectHideFlags: 0

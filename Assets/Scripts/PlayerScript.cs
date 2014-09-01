@@ -3,10 +3,15 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
+	public GameControllerScript gcScript;
 	public float     runSpeed      = 10.0f;
 	public float     turnSpeed     = 5.0f;
 	public bool      alive         = true;
 	public Transform bulletPrefab;
+
+	void Start() {
+		gcScript = GameObject.Find ("GameController").GetComponent<GameControllerScript>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,10 +34,15 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c) {
 		if (c.gameObject.tag == "Wall") {
-			this.rigidbody.velocity = Vector3.zero;
-			this.gameObject.particleSystem.Play();
-			this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-			alive = false;
+			gcScript.HurtPlayer(1);
+			Destroy (c.gameObject);
 		}
+	}
+
+	public void Die() {
+		this.rigidbody.velocity = Vector3.zero;
+		this.gameObject.particleSystem.Play();
+		this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+		alive = false;
 	}
 }

@@ -6,10 +6,16 @@ public class GameControllerScript : MonoBehaviour {
 
 	public RectTransform xpBarFill;
 	public RectTransform hpBarFill;
-	public int xp = 0;
+	public int xp       = 0;
 	public int xpToNext = 10;
-	public int hp = 3;
-	public int maxHp = 3;
+	public int hp       = 3;
+	public int maxHp    = 3;
+
+	public PlayerScript playerScript;
+
+	void Start() {
+		playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,5 +32,12 @@ public class GameControllerScript : MonoBehaviour {
 		float percent = ((float)val / (float)max);
 		float width = 392.0f * percent;
 		barFill.sizeDelta = new Vector2(width, barFill.sizeDelta.y);
+	}
+
+	public void HurtPlayer(int damage=1) {
+		hp -= damage;
+		if (hp <= 0) {
+			playerScript.Die();
+		}
 	}
 }
