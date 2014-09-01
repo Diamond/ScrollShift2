@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyScript : MonoBehaviour {
+	public List<Sprite> faces;
 	public GameControllerScript gcScript;
 	public bool alive = false;
 
 	void Start() {
 		gcScript = GameObject.Find ("GameController").GetComponent<GameControllerScript>();
 		alive = true;
+		this.GetComponent<SpriteRenderer>().sprite = faces[Random.Range (0, faces.Count)];
 	}
 
 	void OnCollisionEnter(Collision c) {
