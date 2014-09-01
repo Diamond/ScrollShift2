@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour {
 	void Update () {
 		if (alive) {
 			if (Mathf.Abs(this.transform.position.z - _startPosition.z) < range) {
-				this.transform.position += new Vector3(0.0f, 0.0f, bulletSpeed * Time.deltaTime);
+				this.rigidbody.velocity = new Vector3(0.0f, 0.0f, bulletSpeed);
 			} else {
 				alive = false;
 				this.renderer.enabled = false;
