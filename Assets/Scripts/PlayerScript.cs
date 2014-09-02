@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		if (c.gameObject.tag == "Exit") {
-			Application.LoadLevel("prototype");
+			Application.LoadLevel("titlescreen");
         }
     }
 
@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour {
 		this.gameObject.particleSystem.Play();
 		this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 		alive = false;
+		StartCoroutine(WaitThenQuit());
 	}
 
 	public void LevelUp() {
@@ -58,12 +59,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	IEnumerator WaitThenQuit() {
-		yield return null;
-		for (float f = 1f; f >= 0; f -= 0.1f) {
-			Color c = renderer.material.color;
-			c.a = f;
-			renderer.material.color = c;
-
-		}
+		yield return new WaitForSeconds(3.0f);
+		Application.LoadLevel ("titlescreen");
 	}
 }

@@ -362,6 +362,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100066, guid: 5301037dcf4dcbe418c3c0b41350bbfc, type: 2}
+      propertyPath: m_TagString
+      value: Exit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5301037dcf4dcbe418c3c0b41350bbfc, type: 2}
   m_RootGameObject: {fileID: 1957106483}
@@ -3333,7 +3337,7 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .5
+  m_Intensity: .200000003
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4739,7 +4743,7 @@ GameObject:
   - 65: {fileID: 1926006973}
   m_Layer: 0
   m_Name: Archway
-  m_TagString: Untagged
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6124,6 +6128,7 @@ MonoBehaviour:
   - {fileID: 400000, guid: 03216a4d3aaa1004d941d326b05493b2, type: 2}
   - {fileID: 400006, guid: df6f3944f2cdee643976aa310d795767, type: 2}
   - {fileID: 400014, guid: fa59a04b7620f3e4b88ed5a12bdc9637, type: 2}
+  - {fileID: 400014, guid: ce96463eef1c74b40b1aa6705ba6e696, type: 2}
 --- !u!4 &1993436993
 Transform:
   m_ObjectHideFlags: 0
