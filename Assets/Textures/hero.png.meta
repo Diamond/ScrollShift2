@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 6591feab7824f4f39a7e88de230e788e
+guid: ffb1b1635c9514bc8a038cd8f4198756
 TextureImporter:
   fileIDToRecycleName:
-    21300000: heart-empty
+    21300000: hero
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

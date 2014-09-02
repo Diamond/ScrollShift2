@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: e7c77ab9d6e3f44b49a2bacc581c4588
+guid: eb50778a861114aec845b5e235b5983e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero1
+    21300000: blob
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

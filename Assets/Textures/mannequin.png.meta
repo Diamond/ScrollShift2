@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: b36fdef64f46349d7bb9c7759f5eefdd
+guid: 4920d8f116379411eaf8288df4e97224
 TextureImporter:
   fileIDToRecycleName:
-    21300000: skeleton
+    21300000: mannequin
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

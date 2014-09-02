@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 85014796faa3843d08dccc4c01a94bd6
+guid: c52d4d8df31014bb5878f190b21a76f2
 TextureImporter:
   fileIDToRecycleName:
-    21300000: heart-full
+    21300000: coin
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

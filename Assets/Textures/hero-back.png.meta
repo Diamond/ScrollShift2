@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: f852144e43b3e4b929c550979f08a185
+guid: 491b7ec71c44843a29f7b20c494ec5e6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wood
+    21300000: hero-back
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,7 +23,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -32,7 +32,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -43,16 +43,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: wood
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 399
-        width: 40
-        height: 41
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+    sprites: []
   spritePackingTag: 
   userData: 

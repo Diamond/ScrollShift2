@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 458ca9aea5512458c89e48a88fb6af9d
+guid: c48414992862d41ae8b6794a4f1645b0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero0
+    21300000: potion
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
