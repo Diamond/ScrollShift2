@@ -11,8 +11,8 @@ public class WallSpawnerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_walls = new List<Transform>();
-		for (float z = 25.0f; z <= 500.0f; z += 5.0f) {
-			int wallChoice = Random.Range (0, 5);
+		for (float z = 25.0f; z <= 490.0f; z += 5.0f) {
+			int wallChoice = Random.Range (0, wallChoices.Count);
 			Vector2 placement = PlacementForWallChoice(wallChoice);
 			var wall = Instantiate(wallChoices[wallChoice]) as Transform;
 			wall.position = new Vector3(placement.x, placement.y, z);
@@ -23,8 +23,15 @@ public class WallSpawnerScript : MonoBehaviour {
 
 	Vector2 PlacementForWallChoice(int choice) {
 		switch(choice) {
+		case 6:
+			return new Vector2(Random.Range (-8.5f, 8.5f), 0f);
+			break;
+		case 5:
+			return new Vector2(Random.Range (-8.5f, 8.5f), 0f);
+			break;
 		case 4:
 			return new Vector2(Random.Range (-9.5f, 9.5f), 0f);
+			break;
 		case 3:
 			return new Vector2(Random.Range (-8.5f, 8.5f), 0f);
 			break;
