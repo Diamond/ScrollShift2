@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: c2b95c340aeac418999f9da64896e888
+guid: 2530645c84d9c4e9a9eeb12f18af660c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: new-player
+    21300000: hero 1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 2a631a84948dc4dca9b2daa048dc8e70
+guid: 0dc38aa9f48324de1b699b2ca0326048
 TextureImporter:
   fileIDToRecycleName:
-    21300000: player
+    21300000: stage-locked
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,7 +23,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
     aniso: 1
