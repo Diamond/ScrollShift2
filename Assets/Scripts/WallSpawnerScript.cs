@@ -25,26 +25,19 @@ public class WallSpawnerScript : MonoBehaviour {
 		switch(choice) {
 		case 6:
 			return new Vector2(Random.Range (-8.5f, 8.5f), 0f);
-			break;
 		case 5:
 			return new Vector2(Random.Range (-8.5f, 8.5f), 0f);
-			break;
 		case 4:
 			return new Vector2(Random.Range (-9.5f, 9.5f), 0f);
-			break;
 		case 3:
 			return new Vector2(Random.Range (-8.5f, 8.5f), 0f);
-			break;
 		case 2:
 			return new Vector2(Random.Range (-8.5f, 8.5f), 0f);
-			break;
 		case 1:
 			return new Vector2(Random.Range (-9.5f, 9.5f), 0f);
-			break;
 		case 0:
 		default:
 			return new Vector2(Random.Range (-9.5f, 9.5f), 0f);
-			break;
 		}
 	}
 }

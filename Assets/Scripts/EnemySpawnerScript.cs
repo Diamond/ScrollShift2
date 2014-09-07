@@ -6,6 +6,7 @@ public class EnemySpawnerScript: MonoBehaviour {
 
 	private List<Transform> _enemies;
 	public Transform        enemyPrefab;
+	public Transform        potionPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,13 @@ public class EnemySpawnerScript: MonoBehaviour {
 			enemy.position = new Vector3(x, 0.75f, z);
 			enemy.parent = this.transform;
 			_enemies.Add(enemy);
+		}
+
+		for (float z = 100.0f; z <= 500.0f; z += 100.0f) {
+			float x = Random.Range (-9.5f, 9.5f);
+			var potion = Instantiate(potionPrefab) as Transform;
+			potion.position = new Vector3(x, 0.75f, z);
+			potion.parent = this.transform;
 		}
 	}
 }

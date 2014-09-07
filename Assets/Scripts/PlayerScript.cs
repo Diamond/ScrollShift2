@@ -44,6 +44,11 @@ public class PlayerScript : MonoBehaviour {
 		if (c.gameObject.tag == "Exit") {
 			Application.LoadLevel("titlescreen");
         }
+
+		if (c.gameObject.tag == "Potion") {
+			gcScript.HealPlayer();
+			Destroy (c.gameObject);
+		}
     }
 
 	public void Die() {

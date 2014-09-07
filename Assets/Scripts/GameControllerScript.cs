@@ -45,4 +45,11 @@ public class GameControllerScript : MonoBehaviour {
 			playerScript.Die();
 		}
 	}
+
+	public void HealPlayer(int damage=1) {
+		hp += damage;
+		if (hp > maxHp) {
+			hp = maxHp;
+		}
+	}
 }
