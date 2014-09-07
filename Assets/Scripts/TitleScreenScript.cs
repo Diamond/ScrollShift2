@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TitleScreenScript : MonoBehaviour {
 	public void Play() {
-		Application.LoadLevel ("prototype");
+		Application.LoadLevel ("stageselect");
 	}
 
 	public void Quit() {

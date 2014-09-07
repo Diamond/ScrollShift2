@@ -42,7 +42,10 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		if (c.gameObject.tag == "Exit") {
-			Application.LoadLevel("titlescreen");
+			int completedStages = PlayerPrefs.GetInt ("CompletedStages");
+			PlayerPrefs.SetInt ("CompletedStages", ++completedStages);
+			PlayerPrefs.Save ();
+			Application.LoadLevel("stageselect");
         }
 
 		if (c.gameObject.tag == "Potion") {
@@ -65,6 +68,6 @@ public class PlayerScript : MonoBehaviour {
 
 	IEnumerator WaitThenQuit() {
 		yield return new WaitForSeconds(3.0f);
-		Application.LoadLevel ("titlescreen");
+		Application.LoadLevel ("stageselect");
 	}
 }

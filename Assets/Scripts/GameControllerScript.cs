@@ -16,6 +16,7 @@ public class GameControllerScript : MonoBehaviour {
 
 	void Start() {
 		playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+		LoadProgress();
 	}
 	
 	// Update is called once per frame
@@ -51,5 +52,21 @@ public class GameControllerScript : MonoBehaviour {
 		if (hp > maxHp) {
 			hp = maxHp;
 		}
+	}
+
+	public void SaveProgress() {
+		PlayerPrefs.SetInt("XP", xp);
+		PlayerPrefs.SetInt("XPToNext", xpToNext);
+		PlayerPrefs.SetInt("MaxHP", maxHp);
+		PlayerPrefs.SetInt("Level", level);
+		PlayerPrefs.Save();
+	}
+
+	public void LoadProgress() {
+		xp       = PlayerPrefs.GetInt("XP");
+		xpToNext = PlayerPrefs.GetInt("XPToNext");
+		maxHp    = PlayerPrefs.GetInt("MaxHP");
+		level    = PlayerPrefs.GetInt("Level");
+		hp       = maxHp;
 	}
 }
