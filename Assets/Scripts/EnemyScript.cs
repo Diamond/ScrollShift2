@@ -6,6 +6,7 @@ public class EnemyScript : MonoBehaviour {
 	public List<Sprite> faces;
 	public GameControllerScript gcScript;
 	public bool alive = false;
+	public int  attack = 1;
 
 	void Start() {
 		gcScript = GameObject.Find ("GameController").GetComponent<GameControllerScript>();
@@ -17,7 +18,7 @@ public class EnemyScript : MonoBehaviour {
 		if (!alive) return;
 		if (c.gameObject.tag == "Player") {
 			Destroy (this.gameObject);
-			gcScript.HurtPlayer(1);
+			gcScript.HurtPlayer(attack);
 		}
 	}
 
@@ -28,7 +29,7 @@ public class EnemyScript : MonoBehaviour {
 			this.particleSystem.Play();
 			//Destroy (this.gameObject);
 			Destroy (c.gameObject);
-			gcScript.xp += 1;
+			gcScript.xp += attack;
 			alive = false;
 		}
 	}

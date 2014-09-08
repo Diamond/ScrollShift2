@@ -11,12 +11,21 @@ public class GameControllerScript : MonoBehaviour {
 	public int hp       = 3;
 	public int maxHp    = 3;
 	public int level    = 1;
+	public int stage    = 1;
+
+	public Text levelDisplay;
 
 	public PlayerScript playerScript;
+	public EnemySpawnerScript esScript;
+	public WallSpawnerScript wsScript;
 
 	void Start() {
 		playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+		esScript     = GameObject.Find ("EnemySpawner").GetComponent<EnemySpawnerScript>();
+		wsScript     = GameObject.Find ("WallSpawner").GetComponent<WallSpawnerScript>();
 		LoadProgress();
+		esScript.Spawn(stage);
+		wsScript.Spawn(stage);
 	}
 	
 	// Update is called once per frame
@@ -32,6 +41,7 @@ public class GameControllerScript : MonoBehaviour {
 
 		BarSizeForValue(xp, xpToNext, xpBarFill);
 		BarSizeForValue(hp, maxHp,    hpBarFill);
+		levelDisplay.text = "Stage: " + stage.ToString() + " Player Level: " + level.ToString();
 	}
 
 	void BarSizeForValue(int val, int max, RectTransform barFill) {
@@ -62,11 +72,19 @@ public class GameControllerScript : MonoBehaviour {
 		PlayerPrefs.Save();
 	}
 
+	public void AddXp(int moarXp) {
+		xp += moarXp;
+	}
+
 	public void LoadProgress() {
-		xp       = PlayerPrefs.GetInt("XP");
-		xpToNext = PlayerPrefs.GetInt("XPToNext");
-		maxHp    = PlayerPrefs.GetInt("MaxHP");
-		level    = PlayerPrefs.GetInt("Level");
-		hp       = maxHp;
+		if (PlayerPrefs.HasKey ("XP")) {
+			xp       = PlayerPrefs.GetInt("XP");
+			xpToNext = PlayerPrefs.GetInt("XPToNext");
+			maxHp    = PlayerPrefs.GetInt("MaxHP");
+			level    = PlayerPrefs.GetInt("Level");
+			stage    = PlayerPrefs.GetInt("SelectedStage");
+			stage++;
+			hp       = maxHp;
+		}
 	}
 }

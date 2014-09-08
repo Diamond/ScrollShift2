@@ -4,14 +4,18 @@ using System.Collections.Generic;
 
 public class WallSpawnerScript : MonoBehaviour {
 
-	private List<Transform> _walls;
-	public Transform        wallPrefab;
-	public List<Transform>  wallChoices;
+	private List<Transform> 	 _walls;
+	public  Transform        	 wallPrefab;
+	public  List<Transform>  	 wallChoices;
+	private GameControllerScript _gcScript;
 
 	// Use this for initialization
-	void Start () {
+	public void Spawn (int stage) {
+		_gcScript = GameObject.Find ("GameController").GetComponent<GameControllerScript>();
+		float interval = Mathf.Max ((20 - stage) * 3.0f, 3.0f);
+
 		_walls = new List<Transform>();
-		for (float z = 25.0f; z <= 490.0f; z += 5.0f) {
+		for (float z = 25.0f; z <= 490.0f; z += interval) {
 			int wallChoice = Random.Range (0, wallChoices.Count);
 			Vector2 placement = PlacementForWallChoice(wallChoice);
 			var wall = Instantiate(wallChoices[wallChoice]) as Transform;

@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class StageSelectorScript : MonoBehaviour {
-	private int stage = 0;
-	private int unlockedStages = 1;
+	private int stage           = 0;
+	private int unlockedStages  = 1;
 	private int completedStages = 0;
 
 	public List<Transform> stageButtons;
 	public Transform       player;
+
+	public Text            levelDisplay;
+	public Text            hpDisplay;
+	public Text            xpDisplay;
 
 	// Use this for initialization
 	void Start () {
@@ -20,30 +25,32 @@ public class StageSelectorScript : MonoBehaviour {
 				stageButtons[i].GetComponent<StageButtonScript>().Complete();
 			} else if (i < unlockedStages) {
 				stageButtons[i].GetComponent<StageButtonScript>().Unlock();
+				stage = i;
 			} else {
 				stageButtons[i].GetComponent<StageButtonScript>().Lock();
 			}
 		}
 
 		Input.simulateMouseWithTouches = true;
+		LoadProgress ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float offset = -4.0f;
+		float offset = -8.0f;
 		player.transform.position = new Vector3((stage * 2.0f) + offset, 0.75f, -2.0f);
 
-		if (Input.GetAxis ("Horizontal") == 1) {
+		if (Input.GetKeyDown("d")) {
 			// Move Right
-			if (stage < unlockedStages && stage < stageButtons.Count) {
+			if (stage < (unlockedStages - 1) && stage < (stageButtons.Count - 1)) {
 				stage++;
 			}
-		} else if (Input.GetAxis("Horizontal") == -1) {
+		} else if (Input.GetKeyDown("a")) {
 			// Move Left
 			if (stage > 0) {
 				stage--;
 			}
-		} else if (Input.GetButton("Fire1")) {
+		} else if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump")) {
 			// Select the stage
 			PlayerPrefs.SetInt("SelectedStage", stage);
 			PlayerPrefs.Save ();
@@ -54,6 +61,18 @@ public class StageSelectorScript : MonoBehaviour {
 	public void SelectStage(int index) {
 		if (index >= 0 && index < unlockedStages) {
 			stage = index;
+		}
+	}
+
+	void LoadProgress() {
+		if (PlayerPrefs.HasKey ("XP")) {
+			int xp       = PlayerPrefs.GetInt("XP");
+			int xpToNext = PlayerPrefs.GetInt("XPToNext");
+			int maxHp    = PlayerPrefs.GetInt("MaxHP");
+			int level    = PlayerPrefs.GetInt("Level");
+			levelDisplay.text = "Level: " + level.ToString();
+			hpDisplay.text    = "HP: " + maxHp.ToString();
+			xpDisplay.text    = "XP: " + xp.ToString() + " / " + xpToNext.ToString();
 		}
 	}
 }

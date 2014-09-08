@@ -37,13 +37,16 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c) {
 		if (c.gameObject.tag == "Wall") {
-			gcScript.HurtPlayer(1);
+			gcScript.HurtPlayer();
 			Destroy (c.gameObject);
 		}
 
 		if (c.gameObject.tag == "Exit") {
 			int completedStages = PlayerPrefs.GetInt ("CompletedStages");
-			PlayerPrefs.SetInt ("CompletedStages", ++completedStages);
+			if (gcScript.stage > PlayerPrefs.GetInt ("CompletedStages")) {
+				PlayerPrefs.SetInt ("CompletedStages", gcScript.stage);
+			}
+			gcScript.SaveProgress();
 			PlayerPrefs.Save ();
 			Application.LoadLevel("stageselect");
         }
@@ -68,6 +71,7 @@ public class PlayerScript : MonoBehaviour {
 
 	IEnumerator WaitThenQuit() {
 		yield return new WaitForSeconds(3.0f);
+		gcScript.SaveProgress();
 		Application.LoadLevel ("stageselect");
 	}
 }
