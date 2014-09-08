@@ -13,7 +13,7 @@ public class EnemySpawnerScript: MonoBehaviour {
 	// Use this for initialization
 	public void Spawn(int stage) {
 		_gcScript = GameObject.Find ("GameController").GetComponent<GameControllerScript>();
-		float interval = Mathf.Max ((9 - stage) * 5.0f, 5.0f);
+		float interval = Mathf.Max ((20 - stage) * 3.0f, 3.0f);
 
 		_enemies = new List<Transform>();
 		for (float z = 25.0f; z <= 500.0f; z += interval) {

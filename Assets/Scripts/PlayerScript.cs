@@ -19,11 +19,18 @@ public class PlayerScript : MonoBehaviour {
 		if (!alive) return;
 
 		float xvel = Input.GetAxis("Horizontal") * turnSpeed;
+		//if (Application.platform == RuntimePlatform.IPhonePlayer) {
+		if (TiltToMove() != 0) {
+			xvel = TiltToMove() * turnSpeed;
+		}
+		//}
 		if (xvel < 0 && this.transform.position.x <= -9.0f) {
 			xvel = 0.0f;
 		} else if (xvel > 0 && this.transform.position.x >= 9.0f) {
 			xvel = 0.0f;
 		}
+
+		TiltToMove ();
 
 		this.rigidbody.velocity = new Vector3(xvel, this.rigidbody.velocity.y, runSpeed);
 		if (Input.GetButtonDown("Fire1")) {
@@ -33,6 +40,20 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		levelUpParticles.transform.position = this.transform.position;
+	}
+
+	int TiltToMove() {
+		float tiltAngle = iPhoneInput.acceleration.x;
+		Debug.Log (tiltAngle.ToString());
+
+		if (Mathf.Abs (tiltAngle) > 0.1f) {
+			if (tiltAngle < 0) {
+				return -1;
+			}  else if (tiltAngle > 0) {
+				return 1;
+			}
+		}
+		return 0;
 	}
 
 	void OnTriggerEnter(Collider c) {

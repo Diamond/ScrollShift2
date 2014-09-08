@@ -8,10 +8,10 @@ public class StageButtonScript : MonoBehaviour {
 	public  Sprite unlockedSprite;
 	public  Sprite completeSprite;
 	public  int    stageNumber = 1;
-	private StageSelectorScript _ssScript;
+	private DynamicStageSelectorScript _ssScript;
 
 	void Start() {
-		_ssScript = GameObject.Find ("StageSelector").GetComponent<StageSelectorScript>();
+		_ssScript = GameObject.Find ("StageSelector").GetComponent<DynamicStageSelectorScript>();
 	}
 
 	public void Lock() {
